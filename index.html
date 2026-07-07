@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ölvisholt Brewery</title>
+  <meta name="description" content="Handverksbrugghús á Suðurlandi. Bruggað síðan 2007." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">
+        <img src="assets/img/logo-white.svg" alt="Ölvisholt Brewery" />
+      </a>
+      <nav class="nav">
+        <a href="#bjor">Bjór</a>
+        <a href="#brugghus">Brugghúsið</a>
+        <a href="#sermerking">Sérmerking</a>
+        <a href="#um">Um okkur</a>
+        <a href="#hafa-samband" class="nav-cta">Hafa samband</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <img class="hero-logo" src="assets/img/logo-white.svg" alt="Ölvisholt Brewery" />
+      </div>
+    </section>
+
+    <!-- BEERS -->
+    <section id="bjor" class="beers">
+      <div class="container">
+        <div class="section-head">
+          <h2>Bjórarnir okkar</h2>
+        </div>
+      </div>
+      <div class="beer-experience" id="beer-exp">
+        <button class="car-nav car-prev" id="car-prev" aria-label="Fyrri bjór">&lsaquo;</button>
+        <div class="carousel" id="carousel" tabindex="0" aria-label="Bjórar"></div>
+        <button class="car-nav car-next" id="car-next" aria-label="Næsti bjór">&rsaquo;</button>
+        <aside class="beer-panel" id="beer-panel" aria-live="polite">
+          <button class="panel-close" id="panel-close" aria-label="Loka">&times;</button>
+          <span class="panel-abv" id="panel-abv"></span>
+          <h3 class="panel-name" id="panel-name"></h3>
+          <p class="panel-desc" id="panel-desc"></p>
+        </aside>
+      </div>
+      <div class="container">
+        <div class="car-dots" id="car-dots"></div>
+      </div>
+    </section>
+
+    <!-- SÓDAVATN -->
+    <section id="vatn" class="soda">
+      <svg class="soda-divider" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="#33505c" d="M0,0 H1440 V90 L1360,120 L1288,80 L1206,122 L1126,74 L1038,122 L950,82 L864,118 L780,72 L700,120 L616,84 L530,122 L448,78 L360,118 L276,86 L196,122 L120,86 L58,114 L0,122 Z"/>
+        <path fill="#1a1613" d="M0,0 H1440 V64 L1380,94 L1318,58 L1248,98 L1178,50 L1090,102 L1008,54 L926,94 L848,44 L766,100 L688,60 L602,106 L518,48 L436,94 L354,56 L270,102 L188,62 L108,98 L54,66 L0,94 Z"/>
+      </svg>
+      <div class="soda-bubbles" aria-hidden="true">
+        <span style="left:6%;width:14px;height:14px;animation-duration:9s;animation-delay:-1s"></span>
+        <span style="left:12%;width:8px;height:8px;animation-duration:7s;animation-delay:-3s"></span>
+        <span style="left:18%;width:20px;height:20px;animation-duration:12s;animation-delay:-6s"></span>
+        <span style="left:24%;width:10px;height:10px;animation-duration:8s;animation-delay:-2s"></span>
+        <span style="left:31%;width:6px;height:6px;animation-duration:6s;animation-delay:-4s"></span>
+        <span style="left:38%;width:16px;height:16px;animation-duration:11s;animation-delay:-7s"></span>
+        <span style="left:45%;width:9px;height:9px;animation-duration:7.5s;animation-delay:-1.5s"></span>
+        <span style="left:52%;width:22px;height:22px;animation-duration:13s;animation-delay:-9s"></span>
+        <span style="left:59%;width:7px;height:7px;animation-duration:6.5s;animation-delay:-2.5s"></span>
+        <span style="left:66%;width:13px;height:13px;animation-duration:9.5s;animation-delay:-5s"></span>
+        <span style="left:72%;width:18px;height:18px;animation-duration:12.5s;animation-delay:-3.5s"></span>
+        <span style="left:79%;width:9px;height:9px;animation-duration:8s;animation-delay:-6.5s"></span>
+        <span style="left:85%;width:12px;height:12px;animation-duration:10s;animation-delay:-1s"></span>
+        <span style="left:90%;width:6px;height:6px;animation-duration:6s;animation-delay:-4.5s"></span>
+        <span style="left:94%;width:16px;height:16px;animation-duration:11.5s;animation-delay:-8s"></span>
+      </div>
+      <div class="container soda-inner">
+        <h2>Kolsýrt íslenskt vatn</h2>
+        <p class="soda-sub">Tært íslenskt lindarvatn — með og án bragðs.</p>
+        <div class="soda-cans">
+          <img src="assets/img/vatn-plain.png" alt="Ölvisholt kolsýrt íslenskt vatn" loading="lazy" />
+          <img src="assets/img/vatn-lime.png" alt="Ölvisholt kolsýrt íslenskt vatn – Lime" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- BRUGGHÚSIÐ / HEIMSÓKN -->
+    <section id="brugghus" class="visit">
+      <div class="visit-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="visit-text">
+          <h2>Heimsókn í brugghúsið</h2>
+          <p class="visit-lead">Skemmtileg smakkupplifun þar sem sérfræðingarnir okkar leiða hópinn þinn í gegnum nýjustu aðstöðuna okkar og sýna hvernig við bruggum okkar bjór.</p>
+          <a href="brugghus.html" class="btn btn-primary">Skoða nánar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SÉRMERKING -->
+    <section id="sermerking" class="custom">
+      <div class="container custom-inner">
+        <div class="custom-copy">
+          <p class="kicker">Sérmerking</p>
+          <h2>Sérmerktur bjór eða vatn fyrir öll tilefni</h2>
+          <p>Hjá Ölvisholti Brewery býðst einstakt tækifæri fyrir fyrirtæki, viðburðahaldara og einstaklinga að sérmerkja dósir fyrir hvaða tilefni sem er. Hvort sem það er fyrir fyrirtækjaskemmtanir, brúðkaup, afmæli eða partý, þá getur þitt merki eða hönnun verið í aðalhlutverki á okkar gæða handverksbjórum.</p>
+          <a href="sermerking.html" class="btn btn-primary">Nánar</a>
+        </div>
+        <div class="custom-media">
+          <img src="assets/img/sermerking.png" alt="Sérmerktur bjór frá Ölvisholti" loading="lazy" />
+        </div>
+      </div>
+    </section>
+    <!-- UM OKKUR -->
+    <section id="um" class="about">
+      <div class="container about-inner">
+        <p class="kicker">Um okkur</p>
+        <h2>Bruggað af ástríðu síðan 2007</h2>
+        <p>Ölvisholt brugghús var stofnað árið 2007 af tveimur nágrannabændum sem höfðu sanna ástríðu fyrir bjór.</p>
+        <div class="about-cols">
+          <div class="about-col">
+            <h3>Vegferðin</h3>
+            <p>Gamalli hlöðu var breytt og endurnýtt til að hýsa litla brugghúsið og þar töfrar okkar snjalli bruggmeistari fram nokkra af bestu bjórum sem Ísland hefur framleitt. Strax í upphafi var stefnt að því að framleiða bjór af þeim gæðum sem Ísland átti ekki að venjast og koma þannig af stað hinu vinsæla örbrugghúsatrendi sem nú er áberandi á Íslandi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="hafa-samband" class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/img/logo-white.svg" alt="Ölvisholt Brewery" class="footer-logo" />
+        <div class="footer-social">
+          <a href="https://www.facebook.com/olvisholt" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/olvisholt_brewery/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.17.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.17 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.17-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.41-2.19-.21-.55-.47-.94-.88-1.35-.41-.41-.8-.67-1.35-.88-.42-.17-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.46 5.46 0 1 0 0 10.92 5.46 5.46 0 0 0 0-10.92zm0 9a3.54 3.54 0 1 1 0-7.08 3.54 3.54 0 0 1 0 7.08zm5.68-9.23a1.28 1.28 0 1 1-2.56 0 1.28 1.28 0 0 1 2.56 0z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Heimilisfang</h4>
+        <p>Ölvisholt ehf<br />Grandatröð 4<br />220 Hafnarfjörður</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hafa samband</h4>
+        <p>
+          <a href="mailto:olvisholt@olvisholt.is">olvisholt@olvisholt.is</a><br />
+          <a href="tel:+3547675000">+354 767 5000</a>
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> Ölvisholt Brewery · Bruggað síðan 2007</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
