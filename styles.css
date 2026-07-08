@@ -68,15 +68,39 @@ h1, h2, h3 {
 .brand img { height: 34px; display: block; }
 .header-right { display: flex; align-items: center; gap: 14px; }
 
-/* Panta drykki — always-visible CTA */
+/* Panta — always-visible premium CTA */
 .btn-panta {
-  display: inline-block; padding: 10px 22px; border-radius: 999px;
-  background: var(--grad-warm); color: #1a1200; text-decoration: none;
-  font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em;
-  box-shadow: 0 8px 22px -10px rgba(224,164,59,0.7);
-  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative; overflow: hidden;
+  display: inline-block; padding: 14px 34px; border-radius: 999px;
+  background: linear-gradient(135deg, #f7cf72 0%, #e0a43b 42%, #c4622d 100%);
+  color: #241500; text-decoration: none;
+  font-weight: 800; font-size: 0.98rem; text-transform: uppercase; letter-spacing: 0.1em;
+  border: 1px solid rgba(255,236,190,0.55);
+  box-shadow: 0 10px 26px -8px rgba(224,164,59,0.65), inset 0 1px 0 rgba(255,255,255,0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: pantaGlow 3.4s ease-in-out infinite;
 }
-.btn-panta:hover { transform: translateY(-1px); box-shadow: 0 12px 26px -10px rgba(224,164,59,0.85); }
+/* moving shine sweep */
+.btn-panta::before {
+  content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.75), transparent);
+  transform: skewX(-20deg);
+  animation: pantaShine 3.4s ease-in-out infinite;
+}
+.btn-panta:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 16px 34px -8px rgba(224,164,59,0.9), inset 0 1px 0 rgba(255,255,255,0.6); }
+@keyframes pantaGlow {
+  0%, 100% { box-shadow: 0 10px 26px -8px rgba(224,164,59,0.6), inset 0 1px 0 rgba(255,255,255,0.5); }
+  50%      { box-shadow: 0 12px 34px -6px rgba(240,190,90,0.85), inset 0 1px 0 rgba(255,255,255,0.6); }
+}
+@keyframes pantaShine {
+  0%   { left: -60%; }
+  55%  { left: 130%; }
+  100% { left: 130%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-panta { animation: none; }
+  .btn-panta::before { display: none; }
+}
 
 /* Hamburger */
 .menu-toggle {
