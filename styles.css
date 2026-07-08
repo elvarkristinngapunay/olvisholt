@@ -621,7 +621,7 @@ body.menu-open { overflow: hidden; }
 }
 
 /* ===== Sérmerking subpage ===== */
-.subhero { position: relative; overflow: hidden; padding: 132px 0 88px; }
+.subhero { position: relative; overflow: hidden; padding: 120px 0 52px; }
 .subhero-bg {
   position: absolute; inset: 0;
   background: url("assets/img/sermerking-header.jpg") center/cover no-repeat;
@@ -641,7 +641,7 @@ body.menu-open { overflow: hidden; }
 .subhero h1 { font-size: clamp(2.6rem, 7vw, 5rem); font-weight: 800; margin-bottom: 18px; }
 .subhero .lead { color: var(--cream); font-size: 1.15rem; max-width: 560px; }
 
-.sm-intro { padding: 90px 0; }
+.sm-intro { padding: 40px 0 4px; }
 .sm-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .sm-intro-copy h2 { font-size: clamp(2rem, 4.5vw, 2.8rem); margin-bottom: 20px; }
 .sm-intro-solo { max-width: 780px; margin: 0 auto; }
@@ -654,7 +654,7 @@ body.menu-open { overflow: hidden; }
 .sm-intro-media img { width: 100%; display: block; border-radius: 17px; }
 
 /* Moving "previous works" showcase */
-.sm-marquee { padding: 60px 0 30px; background: var(--bg-alt); overflow: hidden; }
+.sm-marquee { padding: 34px 0 16px; background: var(--bg-alt); overflow: hidden; }
 .marquee {
   margin-top: 10px; overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
@@ -669,6 +669,11 @@ body.menu-open { overflow: hidden; }
 .marquee-item img {
   height: 300px; width: auto; object-fit: contain; display: block; margin: 0 auto;
   filter: drop-shadow(0 22px 30px rgba(0,0,0,0.5));
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+.marquee-item:hover img {
+  transform: translateY(-10px) scale(1.04);
+  filter: drop-shadow(0 28px 34px rgba(0,0,0,0.6)) brightness(1.06);
 }
 .marquee-item figcaption {
   margin-top: 16px; font-family: "Barlow Condensed", sans-serif; font-weight: 700;
@@ -684,8 +689,8 @@ body.menu-open { overflow: hidden; }
   .marquee { overflow-x: auto; }
 }
 
-.sm-stansar { padding: 90px 0; }
-.sm-cta { text-align: center; max-width: 620px; margin: 72px auto 0; }
+.sm-stansar { padding: 44px 0 80px; }
+.sm-cta { text-align: center; max-width: 620px; margin: 52px auto 0; }
 .sm-cta h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 14px; }
 .sm-cta p { color: var(--muted); margin-bottom: 26px; }
 
