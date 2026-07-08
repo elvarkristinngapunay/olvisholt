@@ -259,15 +259,19 @@ h1, h2, h3 {
 /* Section dividers + travelling light along the curve */
 .sect-curve { position: absolute; left: 0; width: 100%; z-index: 5; display: block; pointer-events: none; }
 .aqua-top-curve { top: -1px; height: 120px; }
-.curve-fill { }
-.curve-line { fill: none; stroke: rgba(240,189,87,0.28); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
-.curve-light {
-  fill: none; stroke: #ffe2a6; stroke-width: 2.6; stroke-linecap: round; vector-effect: non-scaling-stroke;
-  filter: drop-shadow(0 0 5px rgba(255,214,130,0.95)) drop-shadow(0 0 13px rgba(255,196,105,0.7));
-  stroke-dasharray: 60 1600;
-  animation: curveSweep 5.5s linear infinite;
+.curve-line { fill: none; stroke: rgba(240,189,87,0.2); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+/* travelling light: a soft comet that fades in, glows, and fades out along the curve */
+.curve-halo, .curve-light {
+  fill: none; stroke: url(#curveGlow); stroke-linecap: round; vector-effect: non-scaling-stroke;
+  stroke-dasharray: 210 1150;
+  animation: curveSweep 6.5s cubic-bezier(.45,0,.55,1) infinite;
 }
-@keyframes curveSweep { from { stroke-dashoffset: 1660; } to { stroke-dashoffset: 0; } }
+.curve-halo { stroke-width: 11; filter: blur(6px); opacity: 0.7; }
+.curve-light { stroke-width: 2.4; filter: drop-shadow(0 0 5px rgba(255,220,150,0.85)); }
+@keyframes curveSweep {
+  0%   { stroke-dashoffset: 1360; }
+  100% { stroke-dashoffset: -210; }
+}
 
 @media (max-width: 760px) {
   .aqua { padding: 96px 0 56px; }
