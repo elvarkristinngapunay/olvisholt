@@ -206,25 +206,30 @@ h1, h2, h3 {
 .panel-name { font-size: 1.7rem; line-height: 1.04; margin-bottom: 12px; }
 .panel-desc { color: var(--cream); line-height: 1.6; font-size: 1rem; }
 
-/* Sódavatn — premium product section: still cans + subtle fizzy sparkle */
+/* Sódavatn — premium product section: text left, cans right, subtle fizz */
 .aqua {
-  position: relative; overflow: hidden; text-align: center;
-  padding: 88px 0 70px;
+  position: relative; overflow: hidden;
+  padding: 132px 0 78px;
   background:
-    radial-gradient(60% 48% at 50% 62%, rgba(70,140,190,0.32), transparent 72%),
+    radial-gradient(48% 52% at 72% 54%, rgba(70,140,190,0.34), transparent 72%),
     linear-gradient(180deg, #0b1d2e 0%, #0d2438 46%, #0a1c2c 100%);
 }
-.aqua-head { position: relative; z-index: 4; }
-.aqua-head h2 { color: #eef7fc; font-size: clamp(2.2rem, 5.5vw, 3.4rem); margin-bottom: 8px; }
-.aqua-sub { color: #8fb6c8; font-size: 1.05rem; }
+.aqua-inner {
+  position: relative; z-index: 4;
+  display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px;
+}
+.aqua-text { text-align: left; }
+.aqua-text h2 { color: #eef7fc; font-size: clamp(2.4rem, 5vw, 3.9rem); line-height: 1.02; margin-bottom: 22px; }
+.aqua-rule { display: block; width: 56px; height: 3px; border-radius: 2px; background: var(--amber); margin-bottom: 22px; }
+.aqua-sub { color: #9fc3d4; font-size: 1.12rem; line-height: 1.6; }
 
-.aqua-scene { position: relative; width: 100%; max-width: 1200px; height: 500px; margin: 10px auto 0; }
+.aqua-stage { position: relative; height: 440px; }
 
 /* glow behind the cans */
 .aqua-glow {
-  position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%);
-  width: min(560px, 80%); height: 380px; z-index: 1; pointer-events: none;
-  background: radial-gradient(ellipse 50% 60% at 50% 60%, rgba(120,190,235,0.28), rgba(120,190,235,0) 70%);
+  position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%);
+  width: min(520px, 96%); height: 400px; z-index: 1; pointer-events: none;
+  background: radial-gradient(ellipse 50% 58% at 50% 60%, rgba(120,190,235,0.3), rgba(120,190,235,0) 70%);
   filter: blur(6px);
 }
 
@@ -244,22 +249,39 @@ h1, h2, h3 {
   100% { transform: translate(var(--dx, 0), var(--rise, -260px)) scale(1); opacity: 0; }
 }
 
-/* the product — still, front and centre */
+/* the product — still, bigger, centred in its column */
 .aqua-cans {
-  position: absolute; left: 50%; bottom: 56px; transform: translateX(-50%);
-  display: flex; align-items: flex-end; gap: 26px; z-index: 3;
+  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+  display: flex; align-items: flex-end; gap: 22px; z-index: 3;
 }
-.aqua-cans img { height: 252px; width: auto; filter: drop-shadow(0 22px 30px rgba(0,0,0,0.6)); }
+.aqua-cans img { height: 400px; width: auto; filter: drop-shadow(0 24px 32px rgba(0,0,0,0.62)); }
 
-@media (max-width: 640px) {
-  .aqua { padding: 68px 0 48px; }
-  .aqua-scene { height: 400px; }
-  .aqua-cans { gap: 16px; bottom: 48px; }
-  .aqua-cans img { height: 178px; }
-  .aqua-glow { height: 300px; }
+/* Section dividers + travelling light along the curve */
+.sect-curve { position: absolute; left: 0; width: 100%; z-index: 5; display: block; pointer-events: none; }
+.aqua-top-curve { top: -1px; height: 120px; }
+.curve-fill { }
+.curve-line { fill: none; stroke: rgba(240,189,87,0.28); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+.curve-light {
+  fill: none; stroke: #ffe2a6; stroke-width: 2.6; stroke-linecap: round; vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 5px rgba(255,214,130,0.95)) drop-shadow(0 0 13px rgba(255,196,105,0.7));
+  stroke-dasharray: 60 1600;
+  animation: curveSweep 5.5s linear infinite;
+}
+@keyframes curveSweep { from { stroke-dashoffset: 1660; } to { stroke-dashoffset: 0; } }
+
+@media (max-width: 760px) {
+  .aqua { padding: 96px 0 56px; }
+  .aqua-inner { grid-template-columns: 1fr; gap: 8px; text-align: center; }
+  .aqua-text { text-align: center; }
+  .aqua-text h2 br, .aqua-sub br { display: none; }
+  .aqua-rule { margin-left: auto; margin-right: auto; }
+  .aqua-stage { height: 360px; }
+  .aqua-cans img { height: 300px; }
+  .aqua-top-curve { height: 80px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .aqua-fizz span { animation: none; opacity: 0.5; }
+  .curve-light { animation: none; opacity: 0; }
 }
 
 /* Visit / Brugghúsið — text over image */
