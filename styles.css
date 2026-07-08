@@ -533,7 +533,8 @@ body.menu-open { overflow: hidden; }
 }
 
 /* Sérmerking (home intro) */
-.custom { padding: 76px 0; background: var(--bg-alt); }
+.custom { position: relative; overflow: hidden; padding: 132px 0 76px; background: var(--bg-alt); }
+.custom-curve { top: -1px; height: 120px; }
 .custom-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .custom-copy h2 { font-size: clamp(2rem, 4.6vw, 3rem); margin-bottom: 26px; max-width: 15ch; line-height: 1.06; }
 .custom-media {
