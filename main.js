@@ -251,4 +251,25 @@ window.addEventListener("resize", () => {
 /* Init */
 render(0, true);
 
+/* Sódavatn — subtle fizzy sparkling particles around and above the cans */
+(function fizz() {
+  const box = document.querySelector(".aqua-fizz");
+  if (!box) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const N = window.innerWidth <= 640 ? 20 : 34;
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  let html = "";
+  for (let i = 0; i < N; i++) {
+    const left = rnd(28, 72);          // concentrated around the cans
+    const size = rnd(2, 5).toFixed(1);
+    const bottom = rnd(48, 150);       // start near the cans
+    const rise = -rnd(150, 340);       // drift up and above
+    const dx = rnd(-26, 26);
+    const dur = rnd(5, 9).toFixed(1);
+    const delay = (-Math.random() * dur).toFixed(1);
+    html += `<span style="left:${left.toFixed(1)}%;bottom:${bottom.toFixed(0)}px;width:${size}px;height:${size}px;--rise:${rise.toFixed(0)}px;--dx:${dx.toFixed(0)}px;animation-duration:${dur}s;animation-delay:${delay}s"></span>`;
+  }
+  box.innerHTML = html;
+})();
+
 document.getElementById("year").textContent = new Date().getFullYear();

@@ -64,62 +64,9 @@
         <h2>Kolsýrt íslenskt vatn</h2>
         <p class="aqua-sub">Tært íslenskt lindarvatn — með og án bragðs.</p>
       </div>
-      <div class="aqua-scene" aria-hidden="true">
-        <svg class="aqua-water" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="aq-stream-l" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#9fd6ee" stop-opacity="0" />
-              <stop offset="0.35" stop-color="#9fd6ee" stop-opacity="0.5" />
-              <stop offset="1" stop-color="#cfeefb" stop-opacity="0.9" />
-            </linearGradient>
-            <linearGradient id="aq-stream-r" x1="1" y1="0" x2="0" y2="0">
-              <stop offset="0" stop-color="#9fd6ee" stop-opacity="0" />
-              <stop offset="0.35" stop-color="#9fd6ee" stop-opacity="0.5" />
-              <stop offset="1" stop-color="#cfeefb" stop-opacity="0.9" />
-            </linearGradient>
-            <linearGradient id="aq-fall" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#dff3fc" stop-opacity="0.9" />
-              <stop offset="0.75" stop-color="#bfe4f5" stop-opacity="0.55" />
-              <stop offset="1" stop-color="#bfe4f5" stop-opacity="0" />
-            </linearGradient>
-          </defs>
-
-          <!-- soft glow bases (static, continuous water body) -->
-          <path class="aq-base" d="M -20 150 C 260 128, 440 156, 596 208" stroke="url(#aq-stream-l)" />
-          <path class="aq-base" d="M 1220 150 C 940 128, 760 156, 604 208" stroke="url(#aq-stream-r)" />
-          <path class="aq-base aq-base-fall" d="M 600 200 L 600 520" stroke="url(#aq-fall)" />
-
-          <!-- moving streaks: left stream -->
-          <path class="aq-flow aq-flow-1" d="M -20 150 C 260 128, 440 156, 596 208" />
-          <path class="aq-flow aq-flow-2" d="M -20 158 C 270 138, 450 168, 596 214" />
-          <!-- moving streaks: right stream -->
-          <path class="aq-flow aq-flow-1" d="M 1220 150 C 940 128, 760 156, 604 208" />
-          <path class="aq-flow aq-flow-2" d="M 1220 158 C 930 138, 750 168, 604 214" />
-          <!-- moving streaks: the fall -->
-          <path class="aq-fall-flow aq-fall-1" d="M 592 202 L 592 520" />
-          <path class="aq-fall-flow aq-fall-2" d="M 602 200 L 602 520" />
-          <path class="aq-fall-flow aq-fall-3" d="M 611 204 L 611 520" />
-        </svg>
-
-        <!-- rising bubbles -->
-        <div class="aqua-bubbles">
-          <span style="left:44%;width:6px;height:6px;animation-duration:7s;animation-delay:-2s"></span>
-          <span style="left:48%;width:4px;height:4px;animation-duration:6s;animation-delay:-4.2s"></span>
-          <span style="left:51%;width:8px;height:8px;animation-duration:8.5s;animation-delay:-1s"></span>
-          <span style="left:55%;width:5px;height:5px;animation-duration:6.5s;animation-delay:-3.4s"></span>
-          <span style="left:41%;width:5px;height:5px;animation-duration:7.5s;animation-delay:-5.6s"></span>
-          <span style="left:58%;width:6px;height:6px;animation-duration:7.2s;animation-delay:-0.8s"></span>
-          <span style="left:46%;width:4px;height:4px;animation-duration:5.8s;animation-delay:-2.9s"></span>
-          <span style="left:53%;width:7px;height:7px;animation-duration:8s;animation-delay:-6.4s"></span>
-        </div>
-
-        <!-- puddle + ripples -->
-        <div class="aqua-puddle">
-          <span class="aqua-ripple" style="animation-delay:0s"></span>
-          <span class="aqua-ripple" style="animation-delay:1.6s"></span>
-          <span class="aqua-ripple" style="animation-delay:3.2s"></span>
-        </div>
-
+      <div class="aqua-scene">
+        <div class="aqua-glow" aria-hidden="true"></div>
+        <div class="aqua-fizz" aria-hidden="true"></div>
         <!-- the product, still and in front -->
         <div class="aqua-cans">
           <img src="assets/img/vatn-plain.png" alt="Ölvisholt kolsýrt íslenskt vatn" loading="lazy" />
@@ -131,6 +78,9 @@
     <!-- BRUGGHÚSIÐ / HEIMSÓKN -->
     <section id="brugghus" class="visit">
       <div class="visit-bg" aria-hidden="true"></div>
+      <svg class="visit-curve" viewBox="0 0 1440 190" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,0 H1440 V36 C 940,36 620,184 0,168 Z" />
+      </svg>
       <div class="container">
         <div class="visit-text">
           <h2>Heimsókn í brugghúsið</h2>
