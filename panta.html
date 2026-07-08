@@ -36,16 +36,76 @@
   </nav>
 
   <main>
-    <section class="panta">
-      <div class="container panta-inner">
-        <p class="kicker">Panta</p>
-        <h1>Panta drykki</h1>
-        <p class="panta-lead">Vefverslunin okkar er á leiðinni. Þangað til getur þú pantað bjór, sódavatn og sérmerktar dósir beint hjá okkur.</p>
-        <div class="panta-contact">
-          <a class="panta-line" href="mailto:olvisholt@olvisholt.is">olvisholt@olvisholt.is</a>
-          <a class="panta-line" href="tel:+3547675000">+354 767 5000</a>
+    <section class="order">
+      <div class="container">
+        <h1 class="order-title">Panta drykki</h1>
+
+        <ol class="order-steps" id="order-steps">
+          <li class="is-active" data-goto="1"><span class="dot">1</span> Velja</li>
+          <li data-goto="2"><span class="dot">2</span> Staðfesta</li>
+          <li data-goto="3"><span class="dot">3</span> Sækja</li>
+        </ol>
+
+        <!-- STEP 1 — Velja -->
+        <div class="order-panel" data-panel="1">
+          <div class="order-filters" id="order-filters">
+            <button class="filt is-active" type="button" data-cat="all">Allt</button>
+            <button class="filt" type="button" data-cat="bjor">Bjór</button>
+            <button class="filt" type="button" data-cat="vatn">Sódavatn</button>
+          </div>
+          <div class="order-grid" id="order-grid"></div>
         </div>
-        <a href="index.html" class="btn btn-primary">Til baka á forsíðu</a>
+
+        <!-- STEP 2 — Staðfesta -->
+        <div class="order-panel" data-panel="2" hidden>
+          <h2 class="order-h">Staðfesta pöntun</h2>
+          <div class="order-summary" id="order-summary"></div>
+          <div class="order-verify" id="order-verify">
+            <p class="verify-note">Þú þarft að vera <strong>20 ára eða eldri</strong>. Staðfestu aldur og pöntun með rafrænum skilríkjum.</p>
+            <button class="btn btn-primary verify-btn" id="verify-btn" type="button">Auðkenna með rafrænum skilríkjum</button>
+            <p class="verify-status" id="verify-status" hidden></p>
+          </div>
+          <div class="order-nav">
+            <button class="btn btn-ghost" type="button" data-goto="1">&lsaquo; Til baka</button>
+            <button class="btn btn-primary" id="to-step3" type="button" disabled>Áfram í afhendingu</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 — Sækja -->
+        <div class="order-panel" data-panel="3" hidden>
+          <h2 class="order-h">Veldu afhendingartíma</h2>
+          <p class="order-sub">Sæktu drykkina í Ölvisholt, Grandatröð 4, Hafnarfirði.</p>
+          <div class="pickup-field">
+            <label for="pickup-day">Dagur</label>
+            <div class="pickup-days" id="pickup-days"></div>
+          </div>
+          <div class="pickup-field">
+            <label>Tími</label>
+            <div class="pickup-times" id="pickup-times"></div>
+          </div>
+          <div class="order-nav">
+            <button class="btn btn-ghost" type="button" data-goto="2">&lsaquo; Til baka</button>
+            <button class="btn btn-primary" id="finish-order" type="button" disabled>Klára pöntun</button>
+          </div>
+        </div>
+
+        <!-- DONE -->
+        <div class="order-panel order-done" data-panel="done" hidden>
+          <div class="done-check">&#10003;</div>
+          <h2 class="order-h">Pöntun staðfest!</h2>
+          <p class="order-sub" id="done-msg"></p>
+          <div class="order-summary" id="done-summary"></div>
+          <a href="index.html" class="btn btn-primary">Til baka á forsíðu</a>
+        </div>
+      </div>
+
+      <!-- sticky total bar (step 1) -->
+      <div class="order-bar" id="order-bar">
+        <div class="order-bar-info">
+          <span class="order-bar-count" id="bar-count">0 drykkir</span>
+          <span class="order-bar-total" id="bar-total">0 kr</span>
+        </div>
+        <button class="btn btn-primary" id="to-step2" type="button" disabled>Áfram</button>
       </div>
     </section>
   </main>
@@ -74,5 +134,6 @@
 
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   <script src="nav.js"></script>
+  <script src="panta.js"></script>
 </body>
 </html>
