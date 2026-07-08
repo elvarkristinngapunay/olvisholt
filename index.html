@@ -59,32 +59,69 @@
     </section>
 
     <!-- SÓDAVATN -->
-    <section id="vatn" class="soda">
-      <svg class="soda-divider" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
-        <path fill="#33505c" d="M0,0 H1440 V90 L1360,120 L1288,80 L1206,122 L1126,74 L1038,122 L950,82 L864,118 L780,72 L700,120 L616,84 L530,122 L448,78 L360,118 L276,86 L196,122 L120,86 L58,114 L0,122 Z"/>
-        <path fill="#1a1613" d="M0,0 H1440 V64 L1380,94 L1318,58 L1248,98 L1178,50 L1090,102 L1008,54 L926,94 L848,44 L766,100 L688,60 L602,106 L518,48 L436,94 L354,56 L270,102 L188,62 L108,98 L54,66 L0,94 Z"/>
-      </svg>
-      <div class="soda-bubbles" aria-hidden="true">
-        <span style="left:6%;width:14px;height:14px;animation-duration:9s;animation-delay:-1s"></span>
-        <span style="left:12%;width:8px;height:8px;animation-duration:7s;animation-delay:-3s"></span>
-        <span style="left:18%;width:20px;height:20px;animation-duration:12s;animation-delay:-6s"></span>
-        <span style="left:24%;width:10px;height:10px;animation-duration:8s;animation-delay:-2s"></span>
-        <span style="left:31%;width:6px;height:6px;animation-duration:6s;animation-delay:-4s"></span>
-        <span style="left:38%;width:16px;height:16px;animation-duration:11s;animation-delay:-7s"></span>
-        <span style="left:45%;width:9px;height:9px;animation-duration:7.5s;animation-delay:-1.5s"></span>
-        <span style="left:52%;width:22px;height:22px;animation-duration:13s;animation-delay:-9s"></span>
-        <span style="left:59%;width:7px;height:7px;animation-duration:6.5s;animation-delay:-2.5s"></span>
-        <span style="left:66%;width:13px;height:13px;animation-duration:9.5s;animation-delay:-5s"></span>
-        <span style="left:72%;width:18px;height:18px;animation-duration:12.5s;animation-delay:-3.5s"></span>
-        <span style="left:79%;width:9px;height:9px;animation-duration:8s;animation-delay:-6.5s"></span>
-        <span style="left:85%;width:12px;height:12px;animation-duration:10s;animation-delay:-1s"></span>
-        <span style="left:90%;width:6px;height:6px;animation-duration:6s;animation-delay:-4.5s"></span>
-        <span style="left:94%;width:16px;height:16px;animation-duration:11.5s;animation-delay:-8s"></span>
-      </div>
-      <div class="container soda-inner">
+    <section id="vatn" class="aqua">
+      <div class="container aqua-head">
         <h2>Kolsýrt íslenskt vatn</h2>
-        <p class="soda-sub">Tært íslenskt lindarvatn — með og án bragðs.</p>
-        <div class="soda-cans">
+        <p class="aqua-sub">Tært íslenskt lindarvatn — með og án bragðs.</p>
+      </div>
+      <div class="aqua-scene" aria-hidden="true">
+        <svg class="aqua-water" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="aq-stream-l" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#9fd6ee" stop-opacity="0" />
+              <stop offset="0.35" stop-color="#9fd6ee" stop-opacity="0.5" />
+              <stop offset="1" stop-color="#cfeefb" stop-opacity="0.9" />
+            </linearGradient>
+            <linearGradient id="aq-stream-r" x1="1" y1="0" x2="0" y2="0">
+              <stop offset="0" stop-color="#9fd6ee" stop-opacity="0" />
+              <stop offset="0.35" stop-color="#9fd6ee" stop-opacity="0.5" />
+              <stop offset="1" stop-color="#cfeefb" stop-opacity="0.9" />
+            </linearGradient>
+            <linearGradient id="aq-fall" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#dff3fc" stop-opacity="0.9" />
+              <stop offset="0.75" stop-color="#bfe4f5" stop-opacity="0.55" />
+              <stop offset="1" stop-color="#bfe4f5" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+
+          <!-- soft glow bases (static, continuous water body) -->
+          <path class="aq-base" d="M -20 150 C 260 128, 440 156, 596 208" stroke="url(#aq-stream-l)" />
+          <path class="aq-base" d="M 1220 150 C 940 128, 760 156, 604 208" stroke="url(#aq-stream-r)" />
+          <path class="aq-base aq-base-fall" d="M 600 200 L 600 520" stroke="url(#aq-fall)" />
+
+          <!-- moving streaks: left stream -->
+          <path class="aq-flow aq-flow-1" d="M -20 150 C 260 128, 440 156, 596 208" />
+          <path class="aq-flow aq-flow-2" d="M -20 158 C 270 138, 450 168, 596 214" />
+          <!-- moving streaks: right stream -->
+          <path class="aq-flow aq-flow-1" d="M 1220 150 C 940 128, 760 156, 604 208" />
+          <path class="aq-flow aq-flow-2" d="M 1220 158 C 930 138, 750 168, 604 214" />
+          <!-- moving streaks: the fall -->
+          <path class="aq-fall-flow aq-fall-1" d="M 592 202 L 592 520" />
+          <path class="aq-fall-flow aq-fall-2" d="M 602 200 L 602 520" />
+          <path class="aq-fall-flow aq-fall-3" d="M 611 204 L 611 520" />
+        </svg>
+
+        <!-- rising bubbles -->
+        <div class="aqua-bubbles">
+          <span style="left:44%;width:6px;height:6px;animation-duration:7s;animation-delay:-2s"></span>
+          <span style="left:48%;width:4px;height:4px;animation-duration:6s;animation-delay:-4.2s"></span>
+          <span style="left:51%;width:8px;height:8px;animation-duration:8.5s;animation-delay:-1s"></span>
+          <span style="left:55%;width:5px;height:5px;animation-duration:6.5s;animation-delay:-3.4s"></span>
+          <span style="left:41%;width:5px;height:5px;animation-duration:7.5s;animation-delay:-5.6s"></span>
+          <span style="left:58%;width:6px;height:6px;animation-duration:7.2s;animation-delay:-0.8s"></span>
+          <span style="left:46%;width:4px;height:4px;animation-duration:5.8s;animation-delay:-2.9s"></span>
+          <span style="left:53%;width:7px;height:7px;animation-duration:8s;animation-delay:-6.4s"></span>
+        </div>
+
+        <!-- puddle + ripples -->
+        <div class="aqua-puddle">
+          <span class="aqua-ripple" style="animation-delay:0s"></span>
+          <span class="aqua-ripple" style="animation-delay:1.6s"></span>
+          <span class="aqua-ripple" style="animation-delay:3.2s"></span>
+        </div>
+
+        <!-- the product, still and in front -->
+        <div class="aqua-cans">
           <img src="assets/img/vatn-plain.png" alt="Ölvisholt kolsýrt íslenskt vatn" loading="lazy" />
           <img src="assets/img/vatn-lime.png" alt="Ölvisholt kolsýrt íslenskt vatn – Lime" loading="lazy" />
         </div>
