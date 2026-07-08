@@ -59,23 +59,86 @@ h1, h2, h3 {
 
 /* Header */
 .site-header {
-  position: sticky; top: 0; z-index: 30;
+  position: sticky; top: 0; z-index: 60;
   background: rgba(18, 16, 14, 0.72);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 74px; }
-.brand img { height: 34px; }
-.nav { display: flex; align-items: center; gap: 30px; }
-.nav a {
-  color: var(--text); text-decoration: none; font-size: 0.9rem; font-weight: 500;
-  text-transform: uppercase; letter-spacing: 0.06em; transition: color 0.2s;
+.brand img { height: 34px; display: block; }
+.header-right { display: flex; align-items: center; gap: 14px; }
+
+/* Panta drykki — always-visible CTA */
+.btn-panta {
+  display: inline-block; padding: 10px 22px; border-radius: 999px;
+  background: var(--grad-warm); color: #1a1200; text-decoration: none;
+  font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em;
+  box-shadow: 0 8px 22px -10px rgba(224,164,59,0.7);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.nav a:hover { color: var(--amber-hi); }
-.nav-cta {
-  border: 1px solid rgba(255,255,255,0.28); padding: 9px 18px; border-radius: 999px;
+.btn-panta:hover { transform: translateY(-1px); box-shadow: 0 12px 26px -10px rgba(224,164,59,0.85); }
+
+/* Hamburger */
+.menu-toggle {
+  width: 44px; height: 44px; padding: 0; border: none; background: transparent; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
 }
-.nav-cta:hover { border-color: var(--amber); }
+.menu-toggle span {
+  display: block; width: 26px; height: 2px; border-radius: 2px; background: var(--text);
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+.menu-open .menu-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* Full-screen menu */
+.site-menu {
+  position: fixed; inset: 0; z-index: 50;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: rgba(14, 11, 9, 0.92); backdrop-filter: blur(18px);
+  opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s;
+}
+.menu-open .site-menu { opacity: 1; visibility: visible; }
+.site-menu ul { list-style: none; text-align: center; }
+.site-menu li { margin: 6px 0; overflow: hidden; }
+.site-menu a {
+  display: inline-block; padding: 6px 0;
+  font-family: "Barlow Condensed", sans-serif; font-weight: 700; text-transform: uppercase;
+  font-size: clamp(2rem, 7vw, 3.6rem); letter-spacing: 0.02em; line-height: 1.1;
+  color: var(--text); text-decoration: none;
+  transform: translateY(115%); transition: transform 0.55s cubic-bezier(.22,.61,.36,1), color 0.2s;
+}
+.site-menu a:hover { color: var(--amber-hi); }
+.menu-open .site-menu li:nth-child(1) a { transition-delay: 0.06s; }
+.menu-open .site-menu li:nth-child(2) a { transition-delay: 0.12s; }
+.menu-open .site-menu li:nth-child(3) a { transition-delay: 0.18s; }
+.menu-open .site-menu li:nth-child(4) a { transition-delay: 0.24s; }
+.menu-open .site-menu a { transform: translateY(0); }
+.menu-close {
+  position: absolute; top: 22px; right: 28px;
+  width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--border); cursor: pointer;
+  background: rgba(255,255,255,0.06); color: var(--text); font-size: 1.7rem; line-height: 1;
+  transition: background 0.2s, transform 0.2s;
+}
+.menu-close:hover { background: rgba(255,255,255,0.16); transform: rotate(90deg); }
+body.menu-open { overflow: hidden; }
+
+@media (max-width: 640px) {
+  .btn-panta { padding: 9px 16px; font-size: 0.8rem; }
+}
+
+/* Panta placeholder page */
+.panta { padding: 150px 0 120px; min-height: 70vh; display: flex; align-items: center; }
+.panta-inner { max-width: 620px; margin: 0 auto; text-align: center; }
+.panta-inner h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); font-weight: 800; margin-bottom: 20px; }
+.panta-lead { color: var(--muted); font-size: 1.15rem; margin-bottom: 30px; }
+.panta-contact { margin-bottom: 34px; }
+.panta-line {
+  display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 700;
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem); color: var(--amber-hi); text-decoration: none;
+  line-height: 1.35; transition: color 0.2s;
+}
+.panta-line:hover { color: #fff; }
 
 /* Hero */
 .hero {

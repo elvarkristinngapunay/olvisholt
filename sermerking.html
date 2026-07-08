@@ -16,15 +16,24 @@
       <a href="index.html" class="brand">
         <img src="assets/img/logo-white.svg" alt="Ölvisholt Brewery" />
       </a>
-      <nav class="nav">
-        <a href="index.html#bjor">Bjór</a>
-        <a href="index.html#brugghus">Brugghúsið</a>
-        <a href="sermerking.html">Sérmerking</a>
-        <a href="index.html#um">Um okkur</a>
-        <a href="index.html#hafa-samband" class="nav-cta">Hafa samband</a>
-      </nav>
+      <div class="header-right">
+        <a href="panta.html" class="btn-panta">Panta drykki</a>
+        <button class="menu-toggle" type="button" aria-label="Valmynd" aria-expanded="false" aria-controls="site-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
+
+  <nav class="site-menu" id="site-menu" aria-hidden="true">
+    <button class="menu-close" type="button" aria-label="Loka valmynd">&times;</button>
+    <ul>
+      <li><a href="index.html#bjor">Skoða bjóra</a></li>
+      <li><a href="sermerking.html">Sérmerkt</a></li>
+      <li><a href="brugghus.html">Brugghúsið</a></li>
+      <li><a href="index.html#um">Um okkur</a></li>
+    </ul>
+  </nav>
 
   <main>
     <!-- Page hero -->
@@ -131,5 +140,6 @@
   </footer>
 
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="nav.js"></script>
 </body>
 </html>

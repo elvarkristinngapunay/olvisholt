@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panta drykki · Ölvisholt Brewery</title>
+  <meta name="description" content="Pantaðu bjór og sódavatn frá Ölvisholti." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/img/logo-white.svg" alt="Ölvisholt Brewery" />
+      </a>
+      <div class="header-right">
+        <a href="panta.html" class="btn-panta">Panta drykki</a>
+        <button class="menu-toggle" type="button" aria-label="Valmynd" aria-expanded="false" aria-controls="site-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="site-menu" id="site-menu" aria-hidden="true">
+    <button class="menu-close" type="button" aria-label="Loka valmynd">&times;</button>
+    <ul>
+      <li><a href="index.html#bjor">Skoða bjóra</a></li>
+      <li><a href="sermerking.html">Sérmerkt</a></li>
+      <li><a href="brugghus.html">Brugghúsið</a></li>
+      <li><a href="index.html#um">Um okkur</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="panta">
+      <div class="container panta-inner">
+        <p class="kicker">Panta</p>
+        <h1>Panta drykki</h1>
+        <p class="panta-lead">Vefverslunin okkar er á leiðinni. Þangað til getur þú pantað bjór, sódavatn og sérmerktar dósir beint hjá okkur.</p>
+        <div class="panta-contact">
+          <a class="panta-line" href="mailto:olvisholt@olvisholt.is">olvisholt@olvisholt.is</a>
+          <a class="panta-line" href="tel:+3547675000">+354 767 5000</a>
+        </div>
+        <a href="index.html" class="btn btn-primary">Til baka á forsíðu</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/img/logo-white.svg" alt="Ölvisholt Brewery" class="footer-logo" />
+      </div>
+      <div class="footer-col">
+        <h4>Heimilisfang</h4>
+        <p>Ölvisholt ehf<br />Grandatröð 4<br />220 Hafnarfjörður</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hafa samband</h4>
+        <p>
+          <a href="mailto:olvisholt@olvisholt.is">olvisholt@olvisholt.is</a><br />
+          <a href="tel:+3547675000">+354 767 5000</a>
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> Ölvisholt Brewery · Bruggað síðan 2007</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="nav.js"></script>
+</body>
+</html>
