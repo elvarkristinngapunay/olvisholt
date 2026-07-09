@@ -65,7 +65,7 @@ h1, h2, h3 {
   border-bottom: 1px solid var(--border);
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 74px; }
-.brand img { height: 34px; display: block; }
+.brand img { height: 48px; display: block; }
 .header-right { display: flex; align-items: center; gap: 14px; }
 
 /* Panta — always-visible premium CTA */
