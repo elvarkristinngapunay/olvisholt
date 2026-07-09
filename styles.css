@@ -762,15 +762,14 @@ body.menu-open { overflow: hidden; }
 /* Footer — the beer photo IS the footer; text sits in the beer.
    The footer overlaps the section above with a transparent top, so the foam's
    natural contour pours slightly over the previous content with no hard seam.
-   Images are the user's own cutouts (alpha untouched, only a bottom fade added).
-   Desktop image (footer-beer.png) is 1536x1024: height = 66.67vw at width:100%,
-   foam crest reaches down to 17.1% of it, the foam/beer line to ~39%.
-   Mobile image (footer-beer-mobile.png, via <picture>) is 1024x1536: 150vw
-   tall, crest to 14.1%, beer line ~36.5%. */
+   Single image (footer-beer.png, 1983x776 = 39.13vw tall at width:100%,
+   checkerboard background removed with a chroma-based pixel mask so the soft
+   foam edge survives). Foam crest reaches down to 26.3% of the image height,
+   the foam/beer line to ~35%. Mobile zooms the same image 2x. */
 .site-footer {
   position: relative; z-index: 10; overflow: hidden; border-top: none;
-  margin-top: -12.5vw;
-  padding: 27vw 0 32px;
+  margin-top: -11vw;
+  padding: 19vw 0 32px;
   background: transparent;
   pointer-events: none;
 }
@@ -782,20 +781,22 @@ body.menu-open { overflow: hidden; }
 /* seamless dark continuation below the photo (matches its bottom-row colour) */
 .site-footer::before {
   content: ""; position: absolute; left: 0; right: 0;
-  top: 62.5vw; bottom: 0; z-index: -1;
-  background: linear-gradient(180deg, #0a0401 0%, #070301 100%);
+  top: 36.5vw; bottom: 0; z-index: -1;
+  background: linear-gradient(180deg, #150301 0%, #070301 100%);
 }
 /* soft dark scrim over the lower beer so the text stays readable */
 .site-footer::after {
   content: ""; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 1;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(22,11,2,0) 38%, rgba(22,11,2,0.5) 64%, rgba(18,9,2,0.85) 100%);
+  background: linear-gradient(180deg, rgba(22,11,2,0) 30%, rgba(22,11,2,0.55) 58%, rgba(18,9,2,0.85) 100%);
 }
 @media (max-width: 640px) {
-  .site-footer { margin-top: -22vw; padding-top: 56vw; }
-  .site-footer::before { top: 144vw; }
+  /* zoom the same image 2x on narrow screens */
+  .footer-foam-photo { width: 200%; left: -50%; }
+  .site-footer { margin-top: -21vw; padding-top: 38vw; }
+  .site-footer::before { top: 72.5vw; }
   .site-footer::after {
-    background: linear-gradient(180deg, rgba(22,11,2,0) 19%, rgba(22,11,2,0.5) 42%, rgba(18,9,2,0.85) 100%);
+    background: linear-gradient(180deg, rgba(22,11,2,0) 10%, rgba(22,11,2,0.5) 34%, rgba(18,9,2,0.85) 100%);
   }
 }
 .footer-bubbles {
