@@ -517,7 +517,8 @@ body.menu-open { overflow: hidden; }
 .visit .container { position: relative; z-index: 2; width: 100%; }
 .visit-text { max-width: 620px; text-shadow: 0 2px 4px rgba(0,0,0,0.85), 0 4px 22px rgba(0,0,0,0.6); }
 .visit-text .btn { text-shadow: none; }
-.visit-text h2 { font-size: clamp(2.4rem, 6vw, 3.8rem); margin-bottom: 20px; }
+.visit-text h1, .visit-text h2 { font-size: clamp(2.4rem, 6vw, 3.8rem); margin-bottom: 20px; }
+.visit-text .back-link { margin-bottom: 18px; }
 .visit-lead { color: var(--cream); font-size: 1.12rem; margin-bottom: 28px; max-width: 560px; }
 .visit-price {
   font-family: "Barlow Condensed", sans-serif; text-transform: uppercase;
@@ -695,16 +696,21 @@ body.menu-open { overflow: hidden; }
 .sm-cta h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 14px; }
 .sm-cta p { color: var(--muted); margin-bottom: 26px; }
 
-/* ===== Brugghúsið subpage ===== */
-.brugg-hero { position: relative; overflow: hidden; min-height: 66vh; display: flex; align-items: flex-end; padding: 120px 0 60px; }
-.brugg-hero-bg { position: absolute; inset: 0; background: url("assets/img/salir-hero.jpg") center/cover no-repeat; }
-.brugg-hero::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(10,8,6,0.4) 0%, rgba(10,8,6,0.18) 38%, rgba(10,8,6,0.92) 100%);
+/* ===== Brugghúsið subpage — hero matches home "Heimsókn í brugghúsið" ===== */
+.brugg-hero {
+  position: relative; overflow: hidden; min-height: 56vh; padding: 170px 0 110px;
+  display: flex; align-items: center;
 }
-.brugg-hero-inner { position: relative; z-index: 1; }
-.brugg-hero h1 { font-size: clamp(2.6rem, 7vw, 5rem); font-weight: 800; margin: 10px 0 16px; text-shadow: 0 2px 18px rgba(0,0,0,0.5); }
-.brugg-hero .lead { max-width: 640px; color: var(--cream); font-size: 1.18rem; text-shadow: 0 2px 14px rgba(0,0,0,0.5); }
+.brugg-hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: url("assets/img/brugghus.webp") 62% center / cover no-repeat;
+  filter: brightness(2.35) contrast(1.08) saturate(1.22);
+}
+.brugg-hero::before {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, rgba(8,6,5,0.55) 0%, rgba(8,6,5,0.18) 46%, rgba(8,6,5,0) 100%);
+}
+.brugg-hero-inner { position: relative; z-index: 2; }
 
 .brugg-body { padding: 84px 0; }
 .brugg-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 54px; align-items: center; }
