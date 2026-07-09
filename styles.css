@@ -759,11 +759,35 @@ body.menu-open { overflow: hidden; }
   .sm-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
 }
 
-/* Footer */
-.site-footer { border-top: 1px solid var(--border); padding: 64px 0 32px; background: #0d0b0a; }
+/* Footer — beer + foam */
+.site-footer {
+  position: relative; overflow: hidden; border-top: none;
+  padding: 118px 0 32px;
+  background: linear-gradient(180deg, #cc8a34 0%, #9c5f1c 20%, #5c3410 54%, #221407 100%);
+}
+.footer-foam {
+  position: absolute; top: 0; left: 0; width: 100%; height: 90px; z-index: 1;
+  display: block; pointer-events: none;
+}
+.footer-bubbles { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+.footer-bubbles span {
+  position: absolute; bottom: -16px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255,244,222,0.9), rgba(255,222,166,0.2) 60%, transparent 78%);
+  animation: ftBubble linear infinite;
+}
+@keyframes ftBubble {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  15% { opacity: 0.85; }
+  85% { opacity: 0.4; }
+  100% { transform: translateY(var(--rise, -160px)) scale(1); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-bubbles span { animation: none; opacity: 0; }
+}
+.site-footer .container { position: relative; z-index: 2; }
 .footer-grid {
   display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px;
-  padding-bottom: 40px; border-bottom: 1px solid var(--border);
+  padding-bottom: 40px; border-bottom: 1px solid rgba(0,0,0,0.35);
 }
 .footer-logo { height: 46px; margin-bottom: 22px; }
 .footer-social { display: flex; gap: 12px; }
