@@ -25,3 +25,28 @@
     if (e.key === "Escape") close();
   });
 })();
+
+/* Reveal-on-scroll — weightier scroll feel as new sections enter. Skipped on the
+   order flow (panta.html): its panels are shown/hidden by panta.js, not scrolled into. */
+(function () {
+  if (document.querySelector(".order")) return;
+  const els = document.querySelectorAll(".reveal");
+  if (!els.length) return;
+
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    els.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        io.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+  );
+  els.forEach((el) => io.observe(el));
+})();

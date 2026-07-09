@@ -827,3 +827,16 @@ body.menu-open { overflow: hidden; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
   .footer-social { justify-content: center; }
 }
+
+/* Reveal-on-scroll — gives the scroll a heavier, more deliberate feel as new sections/info arrive */
+.reveal {
+  opacity: 0; transform: translateY(38px) scale(0.99);
+  transition: opacity 0.9s cubic-bezier(.16,.84,.44,1), transform 0.9s cubic-bezier(.16,.84,.44,1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+.reveal-1.is-visible { transition-delay: 0.12s; }
+.reveal-2.is-visible { transition-delay: 0.22s; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; opacity: 1; transform: none; }
+}
