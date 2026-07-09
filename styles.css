@@ -642,6 +642,7 @@ body.menu-open { overflow: hidden; }
 .back-link:hover { color: var(--amber-hi); }
 .subhero h1 { font-size: clamp(2.6rem, 7vw, 5rem); font-weight: 800; margin-bottom: 18px; }
 .subhero .lead { color: var(--cream); font-size: 1.15rem; max-width: 560px; }
+.subhero-bg.um-bg { background-image: url("assets/img/brugg.jpg"); background-position: center 30%; filter: brightness(0.8) saturate(1.05); }
 
 .sm-intro { padding: 40px 0 4px; }
 .sm-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
