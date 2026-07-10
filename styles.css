@@ -16,6 +16,8 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+/* never allow sideways scroll/jiggle on touch devices */
+html, body { overflow-x: hidden; overflow-x: clip; }
 body {
   font-family: "Inter", system-ui, sans-serif;
   background: var(--bg);
@@ -320,7 +322,9 @@ body.menu-open { overflow: hidden; }
 
 /* Beers — coverflow carousel */
 .beers { padding: 100px 0; background: var(--bg-alt); position: relative; }
-.beer-experience { position: relative; margin-top: 8px; }
+/* overflow hidden: the (closed, invisible) info panel and spread slides must never
+   widen the page — stray horizontal overflow makes the whole site jiggle on phones */
+.beer-experience { position: relative; margin-top: 8px; overflow: hidden; }
 
 .carousel {
   --sw: 300px;

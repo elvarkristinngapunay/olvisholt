@@ -224,7 +224,46 @@ carousel.addEventListener("pointerdown", (e) => {
 });
 window.addEventListener("pointermove", (e) => onMove(e.clientX));
 window.addEventListener("pointerup", onUp);
+// The browser fires pointercancel when it takes over the gesture (e.g. starts
+// scrolling the page) — abandon the drag cleanly instead of jumping a slide.
+window.addEventListener("pointercancel", () => {
+  if (!dragging) return;
+  dragging = false;
+  render(0);
+});
 carousel.addEventListener("dragstart", (e) => e.preventDefault());
+
+/* Axis lock for touch: decide once per gesture. Horizontal intent keeps the
+   swipe on the carousel (no page scroll underneath); vertical intent hands the
+   gesture to the page immediately so scrolling feels normal. */
+let tStartX = 0;
+let tStartY = 0;
+let tAxis = null;
+carousel.addEventListener(
+  "touchstart",
+  (e) => {
+    tStartX = e.touches[0].clientX;
+    tStartY = e.touches[0].clientY;
+    tAxis = null;
+  },
+  { passive: true }
+);
+carousel.addEventListener(
+  "touchmove",
+  (e) => {
+    const dx = e.touches[0].clientX - tStartX;
+    const dy = e.touches[0].clientY - tStartY;
+    if (!tAxis && (Math.abs(dx) > 6 || Math.abs(dy) > 6)) {
+      tAxis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+      if (tAxis === "y" && dragging) {
+        dragging = false;
+        render(0);
+      }
+    }
+    if (tAxis === "x") e.preventDefault();
+  },
+  { passive: false }
+);
 
 /* Trackpad horizontal swipe */
 let wheelLock = false;
