@@ -793,14 +793,8 @@ a.contact-sub:hover { color: var(--amber-hi); }
   .sm-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
 }
 
-/* Footer — the beer photo IS the footer; text sits in the beer.
-   The footer overlaps the section above with a transparent top, so the foam's
-   natural contour pours slightly over the previous content with no hard seam.
-   Single image (footer-beer.png, 1983x776; shown slightly squashed at
-   height 33vw instead of its natural 39.13vw so the footer stays compact —
-   imperceptible on organic foam). Foam crest reaches down to 26.3% of the
-   displayed height (8.7vw), the foam/beer line to ~35% (11.6vw).
-   Mobile zooms the same image 2x. */
+/* Footer — the normal/desktop layout stays compact and uses the original beer
+   image. Only narrow screens receive the tall foam-free continuation texture. */
 .site-footer {
   position: relative; z-index: 10; overflow: hidden; border-top: none;
   margin-top: -9.5vw;
@@ -813,7 +807,7 @@ a.contact-sub:hover { color: var(--amber-hi); }
   position: absolute; top: 0; left: 0; width: 100%; max-width: none; height: 33vw;
   z-index: 0; display: block; pointer-events: none; user-select: none;
 }
-/* seamless dark continuation below the photo (matches its bottom-row colour) */
+/* Desktop continuation matches the original image and does not add height. */
 .site-footer::before {
   content: ""; position: absolute; left: 0; right: 0;
   top: 30.5vw; bottom: 0; z-index: -1;
@@ -826,16 +820,17 @@ a.contact-sub:hover { color: var(--amber-hi); }
   background: none;
 }
 @media (max-width: 640px) {
-  /* zoom the same image 2x on narrow screens */
-  .footer-foam-photo { width: 200%; left: -50%; height: 66vw; }
+  /* Keep the existing foam shape, then let the tall foam-free texture carry
+     real beer detail through the extra vertical space on narrow screens. */
+  .footer-foam-photo {
+    width: 200%; left: -50%; height: 66vw;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0,0,0,0.94) 64%, rgba(0,0,0,0.48) 82%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0,0,0,0.94) 64%, rgba(0,0,0,0.48) 82%, transparent 100%);
+  }
   .site-footer { margin-top: -18vw; padding-top: 31vw; }
-  /* Continue the photograph with a brighter beer-coloured field instead of
-     dropping straight into near-black below the short landscape image. */
   .site-footer::before {
-    top: 61.5vw;
-    background:
-      radial-gradient(110% 72% at 50% 0%, rgba(205,82,7,0.48) 0%, rgba(112,32,3,0.28) 48%, transparent 78%),
-      linear-gradient(180deg, #672104 0%, #461203 52%, #260802 100%);
+    top: 20vw;
+    background: #180401 url("assets/img/footer-beer-body-mobile.jpg") center top / 100% 100% no-repeat;
   }
   .site-footer::after { background: none; }
 }
@@ -913,7 +908,7 @@ a.contact-sub:hover { color: var(--amber-hi); }
   .custom { padding: 126px 0 72px; }
   .custom-curve { height: 94px; }
   .brand-showcase { grid-template-columns: 1fr; max-width: 320px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; border-bottom: none; }
   .footer-logo { margin-left: auto; margin-right: auto; }
   .footer-social { justify-content: center; }
   .footer-col p { font-size: 1rem; }
