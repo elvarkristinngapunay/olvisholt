@@ -458,12 +458,18 @@ body.menu-open { overflow: hidden; }
   100% { transform: translate(var(--dx, 0), var(--rise, -260px)) scale(1); opacity: 0; }
 }
 
-/* the product — still, bigger, centred in its column */
+/* the product — still, centred, and ALWAYS fully visible: the two cans scale to
+   fit the width of their column (max-width 46% each) and the stage height
+   (max-height 100%), so they never overflow / get clipped on any screen. */
 .aqua-cans {
-  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
-  display: flex; align-items: flex-end; gap: 22px; z-index: 3;
+  position: absolute; left: 0; bottom: 0; width: 100%; height: 100%;
+  display: flex; align-items: flex-end; justify-content: center; gap: 4%;
+  z-index: 3;
 }
-.aqua-cans img { height: 400px; width: auto; filter: drop-shadow(0 24px 32px rgba(0,0,0,0.62)); }
+.aqua-cans img {
+  width: auto; height: auto; max-width: 46%; max-height: 100%;
+  filter: drop-shadow(0 24px 32px rgba(0,0,0,0.62));
+}
 
 /* Section dividers + travelling light along the curve — tuned to read like a
    cinematic macro shot: a razor-thin ice-blue hairline, a soft ambient haze,
@@ -496,8 +502,7 @@ body.menu-open { overflow: hidden; }
   .aqua-text { text-align: center; }
   .aqua-text h2 br, .aqua-sub br { display: none; }
   .aqua-rule { margin-left: auto; margin-right: auto; }
-  .aqua-stage { height: 360px; }
-  .aqua-cans img { height: 300px; }
+  .aqua-stage { height: 380px; }
   .aqua-top-curve { height: 80px; }
 }
 @media (prefers-reduced-motion: reduce) {
