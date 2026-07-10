@@ -465,28 +465,35 @@ body.menu-open { overflow: hidden; }
 }
 .aqua-cans img { height: 400px; width: auto; filter: drop-shadow(0 24px 32px rgba(0,0,0,0.62)); }
 
-/* Section dividers + travelling light along the curve.
-   Layers (back to front): curve-fill, curve-dust (twinkling specks on the blue
-   side), curve-atmo (static soft haze along the whole line), curve-line (thin
-   ice-blue base line), curve-halo + curve-light (the travelling comet, driven
-   by SMIL dashoffset), curve-flare (lens-flare group riding the comet head via
-   animateMotion — same duration/easing, so always in sync). */
+/* Section dividers + travelling light along the curve — tuned to read like a
+   cinematic macro shot: a razor-thin ice-blue hairline, a soft ambient haze,
+   fine drifting dust + bokeh on the blue side, and a single concentrated
+   lens-flare bead (hot white core, round bloom, horizontal anamorphic streak,
+   vertical cross-streak) riding the line in sync with a short blue-white wake.
+   Layers back→front: curve-fill, curve-dust, curve-atmo, curve-line,
+   curve-halo + curve-light (SMIL dashoffset wake), curve-flare (animateMotion). */
 .sect-curve { position: absolute; left: 0; width: 100%; z-index: 5; display: block; pointer-events: none; }
 .aqua-top-curve { top: -1px; height: 120px; }
 .curve-atmo {
-  fill: none; stroke: rgba(126, 176, 226, 0.24); stroke-width: 10;
+  fill: none; stroke: rgba(126, 176, 226, 0.2); stroke-width: 9;
   filter: blur(7px); vector-effect: non-scaling-stroke;
 }
 .curve-line {
-  fill: none; stroke: url(#lineBlue); stroke-width: 1.6; vector-effect: non-scaling-stroke;
-  filter: drop-shadow(0 0 3px rgba(140, 190, 235, 0.5));
+  fill: none; stroke: url(#lineBlue); stroke-width: 1.3; vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 2.5px rgba(150, 198, 240, 0.55));
 }
+/* travelling wake: a thin blue-white segment that brightens the hairline */
 .curve-halo, .curve-light {
   fill: none; stroke: url(#curveGlow); stroke-linecap: round; vector-effect: non-scaling-stroke;
-  stroke-dasharray: 120 1000;
+  stroke-dasharray: 90 1000;
 }
-.curve-halo { stroke-width: 9; filter: blur(8px); opacity: 0.4; }
-.curve-light { stroke-width: 1.5; filter: drop-shadow(0 0 4px rgba(255, 236, 190, 0.5)); opacity: 0.8; }
+.curve-halo { stroke-width: 5; filter: blur(4px); opacity: 0.45; }
+.curve-light { stroke-width: 1.4; filter: drop-shadow(0 0 3px rgba(200, 228, 252, 0.85)); opacity: 0.95; }
+/* lens-flare bead: soft parts blurred, hot core left crisp */
+.curve-flare .flare-bloom { filter: blur(2.5px); }
+.curve-flare .flare-hstreak { filter: blur(0.5px); }
+.curve-flare .flare-vstreak { filter: blur(0.4px); }
+.curve-flare .flare-glow { filter: blur(0.6px); }
 .curve-dust circle { opacity: 0.2; }
 
 @media (max-width: 760px) {
