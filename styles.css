@@ -303,12 +303,12 @@ body.menu-open { overflow: hidden; }
     linear-gradient(180deg, rgba(18,16,14,0.25) 0%, rgba(18,16,14,0.45) 62%, var(--bg) 100%);
 }
 .hero-inner { position: relative; z-index: 2; }
-.hero-logo { width: min(460px, 82vw); height: auto; margin: 0 auto; filter: drop-shadow(0 14px 34px rgba(0,0,0,0.55)); }
+.hero-logo { width: min(210px, 52vw); height: auto; margin: 0 auto 30px; filter: drop-shadow(0 14px 34px rgba(0,0,0,0.55)); }
 .eyebrow {
   color: var(--amber); text-transform: uppercase; letter-spacing: 0.34em;
   font-size: 0.85rem; font-weight: 600; margin-bottom: 22px;
 }
-.hero h1 { font-size: clamp(3rem, 9vw, 6.2rem); font-weight: 800; margin-bottom: 22px; }
+.hero h1 { font-size: clamp(2.3rem, 6vw, 4.4rem); font-weight: 800; line-height: 1.04; margin-bottom: 22px; }
 .hero h1 .hl {
   background: var(--grad-warm); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
