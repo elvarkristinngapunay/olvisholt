@@ -751,13 +751,25 @@ body.menu-open { overflow: hidden; }
 .brugg-contact-bg { position: absolute; inset: 0; background: url("assets/img/salir-2.jpg") center/cover no-repeat; }
 .brugg-contact::after { content: ""; position: absolute; inset: 0; background: rgba(8,6,5,0.83); }
 .brugg-contact-inner { position: relative; z-index: 1; }
-.brugg-contact .kicker { margin-bottom: 22px; }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  max-width: 860px; margin: 0 auto; text-align: center;
+}
+.contact-block .kicker { margin-bottom: 14px; }
 .contact-line {
   display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 700;
-  font-size: clamp(1.9rem, 5.5vw, 3.4rem); line-height: 1.25; letter-spacing: 0.01em;
+  font-size: clamp(1.5rem, 3.4vw, 2.3rem); line-height: 1.2; letter-spacing: 0.01em;
   color: var(--amber-hi); text-decoration: none; transition: color 0.2s;
 }
 .contact-line:hover { color: #fff; }
+.contact-sub {
+  display: block; margin-top: 10px; color: var(--cream); font-size: 1rem;
+  line-height: 1.5; text-decoration: none; transition: color 0.2s;
+}
+a.contact-sub:hover { color: var(--amber-hi); }
+@media (max-width: 640px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 34px; }
+}
 
 @media (max-width: 900px) {
   .brugg-grid { grid-template-columns: 1fr; gap: 34px; }
