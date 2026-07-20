@@ -866,11 +866,16 @@ a.contact-sub:hover { color: var(--amber-hi); }
   display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px;
   padding-bottom: 40px; border-bottom: 1px solid rgba(255,248,234,0.24);
 }
-/* Logo moved OUT of the foam: it now sits centred in the footer-bottom, on the
-   near-black continuation below the beer, where the white roundel reads cleanly. */
-.footer-mark {
-  display: block; height: 58px; width: auto; margin: 0 auto;
-  filter: drop-shadow(0 3px 12px rgba(0,0,0,0.7));
+/* Logo brand mark — the white roundel would vanish on the pale foam drip, so it
+   sits on its own soft dark spotlight (same tone as the social-icon plates). The
+   disc is painted as the img's own background (shows through the transparent
+   parts of the mark), so it stays centred on the logo in every layout. Negative
+   margins cancel the padding so surrounding spacing is unchanged. */
+.footer-logo {
+  height: 64px; box-sizing: content-box; padding: 22px 28px;
+  margin: -22px -28px 0;
+  background: radial-gradient(circle at 50% 47%, rgba(5,1,0,0.74) 0%, rgba(5,1,0,0.42) 44%, rgba(5,1,0,0) 72%);
+  filter: drop-shadow(0 3px 9px rgba(5,1,0,0.7));
 }
 .footer-social { display: flex; gap: 12px; }
 .footer-social a {
@@ -892,13 +897,7 @@ a.contact-sub:hover { color: var(--amber-hi); }
 .footer-col p { color: #fff8ea; line-height: 1.9; font-weight: 500; }
 .footer-col a { color: #fff8ea; font-weight: 500; text-decoration: none; transition: color 0.2s; }
 .footer-col a:hover { color: var(--amber-hi); }
-.footer-bottom {
-  display: flex; flex-direction: column; align-items: center; gap: 20px;
-  padding-top: 96px; text-align: center;
-  color: rgba(255,248,234,0.86); font-size: 0.85rem; font-weight: 500;
-}
-/* panta.html footer has no social block — balance it as two centred columns */
-.footer-grid--slim { grid-template-columns: 1fr 1fr; max-width: 620px; margin: 0 auto; }
+.footer-bottom { padding-top: 24px; color: rgba(255,248,234,0.86); font-size: 0.85rem; font-weight: 500; }
 
 /* Responsive */
 @media (max-width: 940px) {
