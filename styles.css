@@ -16,8 +16,12 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-/* never allow sideways scroll/jiggle on touch devices */
-html, body { overflow-x: hidden; overflow-x: clip; }
+/* Prevent sideways jiggle WITHOUT breaking the sticky header: clip only on the
+   root. `overflow-x: hidden` on <body> would force its overflow-y to `auto`,
+   turning body into a scroll container and detaching the sticky header from the
+   viewport (header would scroll away). `overflow: clip` on <html> clips the
+   horizontal overflow but is NOT a scroll container, so sticky keeps working. */
+html { overflow-x: clip; }
 body {
   font-family: "Manrope", system-ui, sans-serif;
   font-weight: 400;
@@ -25,7 +29,6 @@ body {
   color: var(--text);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 img { max-width: 100%; display: block; }
 .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
