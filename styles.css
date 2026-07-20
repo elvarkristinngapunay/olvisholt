@@ -863,9 +863,16 @@ a.contact-sub:hover { color: var(--amber-hi); }
   display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px;
   padding-bottom: 40px; border-bottom: 1px solid rgba(255,248,234,0.24);
 }
+/* Logo brand mark — the white roundel would vanish on the pale foam drip, so it
+   sits on its own soft dark spotlight (same tone as the social-icon plates). The
+   disc is painted as the img's own background (shows through the transparent
+   parts of the mark), so it stays centred on the logo in every layout. Negative
+   margins cancel the padding so surrounding spacing is unchanged. */
 .footer-logo {
-  height: 64px; margin-bottom: 20px;
-  filter: drop-shadow(0 2px 2px rgba(5,1,0,1)) drop-shadow(0 5px 14px rgba(5,1,0,0.95));
+  height: 64px; box-sizing: content-box; padding: 22px 28px;
+  margin: -22px -28px 0;
+  background: radial-gradient(circle at 50% 47%, rgba(5,1,0,0.74) 0%, rgba(5,1,0,0.42) 44%, rgba(5,1,0,0) 72%);
+  filter: drop-shadow(0 3px 9px rgba(5,1,0,0.7));
 }
 .footer-social { display: flex; gap: 12px; }
 .footer-social a {
