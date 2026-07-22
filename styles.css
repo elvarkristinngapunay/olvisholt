@@ -810,11 +810,13 @@ a.contact-sub:hover { color: var(--amber-hi); }
   position: absolute; top: 0; left: 0; width: 100%; max-width: none; height: 33vw;
   z-index: 0; display: block; pointer-events: none; user-select: none;
 }
-/* Desktop continuation matches the original image and does not add height. */
+/* Below the beer photo the footer continues in the beer's own dark colour (NOT
+   black) so the bottom reads as beer all the way down. Colours sampled from the
+   photo's dark lower pixels (#2c0700) fading a touch deeper. */
 .site-footer::before {
   content: ""; position: absolute; left: 0; right: 0;
   top: 30.5vw; bottom: 0; z-index: -1;
-  background: linear-gradient(180deg, #150301 0%, #070301 100%);
+  background: linear-gradient(180deg, #2c0700 0%, #1d0400 55%, #150300 100%);
 }
 /* Keep the beer artwork completely untouched; contrast comes from the type itself. */
 .site-footer::after {
@@ -866,16 +868,13 @@ a.contact-sub:hover { color: var(--amber-hi); }
   display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px;
   padding-bottom: 40px; border-bottom: 1px solid rgba(255,248,234,0.24);
 }
-/* Logo brand mark — the white roundel would vanish on the pale foam drip, so it
-   sits on its own soft dark spotlight (same tone as the social-icon plates). The
-   disc is painted as the img's own background (shows through the transparent
-   parts of the mark), so it stays centred on the logo in every layout. Negative
-   margins cancel the padding so surrounding spacing is unchanged. */
-.footer-logo {
-  height: 64px; box-sizing: content-box; padding: 22px 28px;
-  margin: -22px -28px 0;
-  background: radial-gradient(circle at 50% 47%, rgba(5,1,0,0.74) 0%, rgba(5,1,0,0.42) 44%, rgba(5,1,0,0) 72%);
-  filter: drop-shadow(0 3px 9px rgba(5,1,0,0.7));
+/* panta.html footer has no social block — balance it as two centred columns */
+.footer-grid--slim { grid-template-columns: 1fr 1fr; max-width: 620px; margin: 0 auto; }
+/* Logo brand mark — sits in the centred bottom row on the dark lower beer.
+   NOTHING sits on the pale foam any more (all content is well below it). */
+.footer-mark {
+  display: block; height: 52px; width: auto; margin: 0 auto;
+  filter: drop-shadow(0 2px 9px rgba(0,0,0,0.85));
 }
 .footer-social { display: flex; gap: 12px; }
 .footer-social a {
@@ -897,7 +896,12 @@ a.contact-sub:hover { color: var(--amber-hi); }
 .footer-col p { color: #fff8ea; line-height: 1.9; font-weight: 500; }
 .footer-col a { color: #fff8ea; font-weight: 500; text-decoration: none; transition: color 0.2s; }
 .footer-col a:hover { color: var(--amber-hi); }
-.footer-bottom { padding-top: 24px; color: rgba(255,248,234,0.86); font-size: 0.85rem; font-weight: 500; }
+.footer-bottom {
+  display: flex; flex-direction: column; align-items: center; gap: 18px;
+  padding-top: 34px; text-align: center;
+  color: rgba(255,248,234,0.86); font-size: 0.85rem; font-weight: 500;
+}
+.footer-bottom .footer-social { justify-content: center; }
 
 /* Responsive */
 @media (max-width: 940px) {
