@@ -50,3 +50,24 @@
   );
   els.forEach((el) => io.observe(el));
 })();
+
+/* Footer bubbles — generate a livelier field of rising bubbles at the very
+   bottom of every page. Replaces the previous 9 hand-authored spans; ~28 with
+   varied size/speed/delay gives real movement without being noisy. */
+(function () {
+  const box = document.querySelector(".footer-bubbles");
+  if (!box) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const N = 28;
+  let html = "";
+  for (let i = 0; i < N; i++) {
+    const left = rand(2, 98);                 // spread edge to edge
+    const size = rand(3, 9).toFixed(1);       // px
+    const rise = -rand(120, 260).toFixed(0);  // how high it drifts
+    const dur  = rand(4.5, 9).toFixed(1);
+    const delay = (-Math.random() * dur).toFixed(1);
+    html += `<span style="left:${left.toFixed(1)}%;width:${size}px;height:${size}px;--rise:${rise}px;animation-duration:${dur}s;animation-delay:${delay}s"></span>`;
+  }
+  box.innerHTML = html;
+})();
