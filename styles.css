@@ -867,6 +867,12 @@ a.contact-sub:hover { color: var(--amber-hi); }
 
 /* Footer — the normal/desktop layout stays compact and uses the original beer
    image. Only narrow screens receive the tall foam-free continuation texture. */
+/* THE BEER GRAPHIC IS THE ENTIRE FOOTER — top to bottom. Do NOT crop the photo
+   and paste a dark colour beneath it (that reads as "cut off / then black");
+   instead let the photo cover the full height of the footer as a background so
+   it always fills the bottom. `object-position: top` keeps the foam locked to
+   the top edge (so the foam still pours over the section above) while the beer
+   below stretches to whatever height the content needs. */
 .site-footer {
   position: relative; z-index: 10; overflow: hidden; border-top: none;
   margin-top: -9.5vw;
@@ -876,37 +882,13 @@ a.contact-sub:hover { color: var(--amber-hi); }
 }
 .site-footer .container, .site-footer a { pointer-events: auto; }
 .footer-foam-photo {
-  position: absolute; top: 0; left: 0; width: 100%; max-width: none; height: 33vw;
+  position: absolute; inset: 0; width: 100%; max-width: none; height: 100%;
   z-index: 0; display: block; pointer-events: none; user-select: none;
-}
-/* Below the beer photo the footer continues in the beer's own dark colour (NOT
-   black) so the bottom reads as beer all the way down. Colours sampled from the
-   photo's dark lower pixels (#2c0700) fading a touch deeper. */
-.site-footer::before {
-  content: ""; position: absolute; left: 0; right: 0;
-  top: 30.5vw; bottom: 0; z-index: -1;
-  background: linear-gradient(180deg, #2c0700 0%, #1d0400 55%, #150300 100%);
-}
-/* Keep the beer artwork completely untouched; contrast comes from the type itself. */
-.site-footer::after {
-  content: ""; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 1;
-  pointer-events: none;
-  background: none;
+  object-fit: cover; object-position: top center;
 }
 @media (max-width: 640px) {
-  /* Keep the existing foam shape, then let the tall foam-free texture carry
-     real beer detail through the extra vertical space on narrow screens. */
-  .footer-foam-photo {
-    width: 200%; left: -50%; height: 66vw;
-    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0,0,0,0.94) 64%, rgba(0,0,0,0.48) 82%, transparent 100%);
-    mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0,0,0,0.94) 64%, rgba(0,0,0,0.48) 82%, transparent 100%);
-  }
   .site-footer { margin-top: -18vw; padding-top: 31vw; }
-  .site-footer::before {
-    top: 20vw;
-    background: #180401 url("assets/img/footer-beer-body-mobile.jpg") center top / 100% 100% no-repeat;
-  }
-  .site-footer::after { background: none; }
+  .footer-foam-photo { width: 200%; left: -50%; }
 }
 .footer-bubbles {
   position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 1;
