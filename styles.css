@@ -876,7 +876,7 @@ a.contact-sub:hover { color: var(--amber-hi); }
 .site-footer {
   position: relative; z-index: 10; overflow: hidden; border-top: none;
   margin-top: -9.5vw;
-  padding: 15vw 0 32px;
+  padding: 21vw 0 32px;
   background: transparent;
   pointer-events: none;
 }
@@ -887,7 +887,7 @@ a.contact-sub:hover { color: var(--amber-hi); }
   object-fit: cover; object-position: top center;
 }
 @media (max-width: 640px) {
-  .site-footer { margin-top: -18vw; padding-top: 31vw; }
+  .site-footer { margin-top: -18vw; padding-top: 78vw; }
   .footer-foam-photo { width: 200%; left: -50%; }
 }
 .footer-bubbles {
@@ -939,18 +939,22 @@ a.contact-sub:hover { color: var(--amber-hi); }
 .footer-social a:hover { background: var(--grad-warm); border-color: transparent; transform: translateY(-2px); }
 .footer-social svg { width: 20px; height: 20px; fill: #fff8ea; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.8)); transition: fill 0.2s; }
 .footer-social a:hover svg { fill: #1a1200; }
+/* Footer type — stronger + slightly larger so it reads cleanly over the beer
+   photo. Weight bumped, size up, and a tuned text-shadow gives real contrast
+   without any dark overlay behind it. Positions/paddings unchanged so the type
+   still sits well BELOW the foam. */
 .footer-col h4 {
   font-family: "Manrope", system-ui, sans-serif; text-transform: uppercase;
-  letter-spacing: 0.07em; font-size: 1.15rem; font-weight: 600;
-  color: #fff0cf; margin-bottom: 14px;
+  letter-spacing: 0.09em; font-size: 1.55rem; font-weight: 800;
+  color: #fff4d6; margin-bottom: 16px;
 }
-.footer-col p { color: #fff8ea; line-height: 1.9; font-weight: 500; }
-.footer-col a { color: #fff8ea; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+.footer-col p { color: #ffffff; line-height: 1.75; font-weight: 800; font-size: 1.25rem; }
+.footer-col a { color: #ffffff; font-weight: 800; text-decoration: none; transition: color 0.2s; }
 .footer-col a:hover { color: var(--amber-hi); }
 .footer-bottom {
   display: flex; flex-direction: column; align-items: center; gap: 18px;
   padding-top: 34px; text-align: center;
-  color: rgba(255,248,234,0.86); font-size: 0.85rem; font-weight: 500;
+  color: #ffffff; font-size: 1.1rem; font-weight: 800;
 }
 .footer-bottom .footer-social { justify-content: center; }
 
@@ -976,7 +980,7 @@ a.contact-sub:hover { color: var(--amber-hi); }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; border-bottom: none; }
   .footer-logo { margin-left: auto; margin-right: auto; }
   .footer-social { justify-content: center; }
-  .footer-col p { font-size: 1rem; }
+  .footer-col p { font-size: 1.15rem; }
 }
 
 /* Reveal-on-scroll — gives the scroll a heavier, more deliberate feel as new sections/info arrive */
